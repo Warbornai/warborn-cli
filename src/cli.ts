@@ -6,6 +6,7 @@
 
 import { createWarbornSDK, WarbornSDK } from '@warborn/sdk';
 import { getPlatformConfig } from '@warborn/config';
+import { MessageRole } from '@warborn/types';
 
 export async function runCLI(args: string[]): Promise<void> {
   const command = args[0] || 'help';
@@ -49,7 +50,7 @@ export async function runCLI(args: string[]): Promise<void> {
     case 'chat':
       const userPrompt = args.slice(1).filter(a => !a.startsWith('--')).join(' ') || 'Hello Warborn AI OS';
       const chatRes = await sdk.chat.complete([
-        { id: '1' as any, role: 'user', content: userPrompt, timestamp: new Date().toISOString() as any }
+        { id: '1' as any, role: 'user' as MessageRole, content: userPrompt, timestamp: new Date().toISOString() as any }
       ]);
       if (isJson) console.log(JSON.stringify(chatRes, null, 2));
       else {
