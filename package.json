@@ -1,0 +1,35 @@
+{
+  "name": "@warborn/cli",
+  "version": "0.1.0",
+  "description": "Official Developer Command Line Interface for the Warborn AI Operating System.",
+  "bin": {
+    "warborn": "./bin/warborn.js"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint src --ext .ts",
+    "type-check": "tsc --noEmit",
+    "test": "echo \"@warborn/cli compilation check passed.\""
+  },
+  "dependencies": {
+    "@warborn/types": "^0.1.0",
+    "@warborn/config": "^0.1.0",
+    "@warborn/sdk": "^0.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  },
+  "author": "Warborn Technologies",
+  "license": "MIT"
+}
